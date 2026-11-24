@@ -1,130 +1,305 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Navraj Dhaliwal | Portfolio</title>
-    <meta name="description" content="Navraj Dhaliwal's portfolio of web applications, privacy research, and web design at The Daily Collegian." />
-    <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
-    <link rel="stylesheet" href="styles.css" />
-    <script src="script.js" defer></script>
-  </head>
-  <body id="top">
-    <a class="skip-link" href="#main-content">Skip to content</a>
-    <nav class="site-nav" aria-label="Primary navigation">
-      <a class="dock-home" href="#top" aria-label="Home">ND</a>
-      <a href="#projects">Work</a>
-      <a href="#resume">Resume</a>
-      <a href="scores.html">Scores</a>
-      <button class="theme-toggle" type="button" aria-label="Light theme" aria-pressed="false" title="Light theme" data-theme-toggle hidden>
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true">
-          <circle cx="12" cy="12" r="4" />
-          <path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42m0-14.14-1.42 1.42M6.35 17.65l-1.42 1.42" />
-        </svg>
-      </button>
-    </nav>
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Navraj Dhaliwal | Portfolio</title>
+  <meta name="description" content="Navraj Dhaliwal's portfolio of web applications, privacy research, and web design at The Daily Collegian.">
+  <link rel="icon" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <script>try{var t=localStorage.getItem("portfolio-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600&family=Oxanium:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="portfolio.css">
+</head>
+<body id="top">
+  <a class="skip" href="#main">Skip to content</a>
 
-    <main class="layout" id="main-content">
-      <section class="intro" aria-labelledby="name">
-        <p class="label intro-location">Fresno, California</p>
-        <h1 id="name">Navraj <span>Dhaliwal</span></h1>
-        <p class="intro-copy">I'm pursuing a master's in computer science at Fresno State and work as a web designer at The Daily Collegian.</p>
-        <div class="link-group intro-actions">
-          <a class="button" href="assets/navraj_resume_removed.pdf" download>Download resume</a>
-          <a class="text-link" href="#projects">View my work</a>
+  <!-- Icon sprite + shared SVG art definitions -->
+  <svg class="defs" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M10 21v-6h4v6"/></symbol>
+      <symbol id="i-github" viewBox="0 0 24 24"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></symbol>
+      <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></symbol>
+      <symbol id="i-resume" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M12 11v7"/><path d="m9 15 3 3 3-3"/></symbol>
+      <symbol id="i-ball" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2v20"/><path d="M5 5a10 10 0 0 1 0 14"/><path d="M19 5a10 10 0 0 0 0 14"/></symbol>
+      <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M6.3 17.7l-1.4 1.4M19.1 4.9l-1.4 1.4"/></symbol>
+      <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+      <symbol id="i-code" viewBox="0 0 24 24"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></symbol>
+      <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></symbol>
+
+      <linearGradient id="g-sky" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#080a1c"/>
+        <stop offset=".62" stop-color="#170d31"/>
+        <stop offset="1" stop-color="#240c36"/>
+      </linearGradient>
+      <radialGradient id="g-horizon" cx=".5" cy=".5" r=".5">
+        <stop offset="0" stop-color="#ff3ea5" stop-opacity=".5"/>
+        <stop offset="1" stop-color="#ff3ea5" stop-opacity="0"/>
+      </radialGradient>
+      <linearGradient id="g-scan" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#2de2ff" stop-opacity="0"/>
+        <stop offset="1" stop-color="#2de2ff" stop-opacity=".28"/>
+      </linearGradient>
+      <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur stdDeviation="2.4" result="b"/>
+        <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+      <g id="floor" fill="none" stroke="#ff3ea5">
+        <path d="M0 112H400" stroke-opacity=".85"/>
+        <path d="M0 115H400M0 119H400M0 125H400M0 133H400M0 144H400M0 159H400" stroke-opacity=".26"/>
+        <path d="M-52 112-400 170M32 112-200 170M90.8 112-60 170M132.8 112 40 170M166.4 112 120 170M200 112V170M233.6 112 280 170M267.2 112 360 170M309.2 112 460 170M368 112 600 170M452 112 800 170" stroke-opacity=".26"/>
+      </g>
+    </defs>
+  </svg>
+
+  <main id="main" class="wrap">
+
+    <header class="hero">
+      <div class="hero-text">
+        <h1 class="name"><span>Navraj</span> <span>Dhaliwal</span></h1>
+        <p class="lede">Computer science grad student at Fresno State and web designer at <a href="https://fscollegian.com/">The Daily Collegian</a>.</p>
+        <a class="btn" id="resume" href="assets/navraj_resume_removed.pdf" download>
+          <svg class="ico"><use href="#i-download"/></svg>
+          Download resume
+        </a>
+      </div>
+      <div class="avatar">
+        <div class="avatar-in">
+          <span aria-hidden="true">ND</span>
         </div>
-      </section>
+      </div>
+    </header>
 
-      <section class="section" id="snapshot" aria-label="Snapshot">
-        <div class="snapshot-grid">
+    <section id="snapshot" aria-labelledby="about-h">
+      <h2 class="sh" id="about-h"><span class="sh-pre" aria-hidden="true">./</span>About</h2>
+      <p class="prose">I'm finishing my master's in computer science at Fresno State, where I also earned a B.S. and an advanced cybersecurity certificate. My master's project is a privacy gate that checks what developers send to cloud coding assistants before it leaves their machine.</p>
+      <p class="prose">I'm also the web designer at <a href="https://fscollegian.com/">The Daily Collegian</a>, Fresno State's student newspaper. I write the HTML and CSS that lays out stories and multimedia, make sure pages hold up on every screen size, and keep the WordPress site, its archive, and the databases behind it running. I work with editors and writers to get stories published on deadline.</p>
+    </section>
+
+    <section aria-labelledby="work-h">
+      <h2 class="sh" id="work-h"><span class="sh-pre" aria-hidden="true">./</span>Experience</h2>
+      <ul class="rows">
+        <li class="row">
+          <span class="tile tile-amber" aria-hidden="true">DC</span>
           <div>
-            <h2 class="ruled-heading">Experience</h2>
-            <article class="experience">
-              <h3>The Daily Collegian</h3>
-              <p class="label">Web Designer / May 2026 to present</p>
-              <p>I maintain the WordPress site and archive for Fresno State's student newspaper. I work with editors and writers to format and publish stories and multimedia on deadline, and fix layout issues across devices.</p>
-              <div class="link-group">
-                <a class="text-link" href="https://fscollegian.com/">Visit The Collegian</a>
-              </div>
-            </article>
+            <a class="row-title" href="https://fscollegian.com/">The Daily Collegian</a>
+            <span class="row-sub">Web Designer</span>
           </div>
+          <span class="row-date">May 2026 – Present</span>
+        </li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="edu-h">
+      <h2 class="sh" id="edu-h"><span class="sh-pre" aria-hidden="true">./</span>Education</h2>
+      <ul class="rows">
+        <li class="row">
+          <span class="tile tile-cyan" aria-hidden="true">FS</span>
           <div>
-            <h2 class="ruled-heading">Education</h2>
-            <ul class="record-list">
-              <li><strong>M.S. in Computer Science</strong><span>Fresno State / Expected December 2026</span></li>
-              <li><strong>B.S. in Computer Science</strong><span>Fresno State / December 2025</span><span>Advanced Cybersecurity Certificate</span></li>
-            </ul>
+            <span class="row-title">California State University, Fresno</span>
+            <span class="row-sub">M.S. in Computer Science</span>
           </div>
-        </div>
-        <div class="skills">
-          <h2 class="ruled-heading">Skills</h2>
-          <ul class="tag-list">
-            <li>Python</li><li>JavaScript</li><li>C/C++</li><li>SQL</li><li>PostgreSQL</li>
-            <li>FastAPI</li><li>React</li><li>WordPress</li><li>Docker</li><li>Linux</li><li>GCP</li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="section" id="projects" aria-labelledby="projects-title">
-        <div class="section-heading">
-          <h2 id="projects-title">Selected Projects</h2>
-          <a class="text-link" href="https://github.com/navraj223/projects">GitHub projects</a>
-        </div>
-        <div class="project-grid">
-          <article class="project project-research">
-            <p class="label">M.S. Project / Fresno State</p>
-            <h3>Local Privacy Gate for Cloud Coding Assistants</h3>
-            <p>I built a local tool that checks prompts and starter code for sensitive details. It can suggest a rewrite or keep a request local. Developers approve what goes to Claude or Gemini.</p>
-            <p>It uses a fine-tuned Qwen2.5-Coder model, tests returned code in restricted Docker containers, and records model and dataset versions for reproducibility.</p>
-            <ul class="tag-list"><li>Python</li><li>MLX</li><li>LoRA</li><li>Docker</li></ul>
-          </article>
-          <article class="project project-rooms">
-            <p class="label">Real-time web app</p>
-            <h3>Breakout Rooms</h3>
-            <p>Built with a team to manage virtual breakout rooms. FastAPI handles room operations, Socket.IO keeps clients in sync, and access controls restrict rooms to authorized users.</p>
-            <ul class="tag-list"><li>Python</li><li>FastAPI</li><li>Socket.IO</li><li>JavaScript</li></ul>
-            <a class="text-link" href="https://github.com/navraj223/projects/tree/main/realtimeBreakoutRooms" aria-label="View Breakout Rooms source code">Source code</a>
-          </article>
-          <article class="project project-path">
-            <p class="label">Algorithms</p>
-            <h3>Pathfinding Visualizer</h3>
-            <p>An interactive visualizer for comparing shortest-path algorithms, including Dijkstra's. The app pairs a C++ implementation with a React interface and runs in Docker.</p>
-            <ul class="tag-list"><li>C++</li><li>React</li><li>Docker</li></ul>
-            <a class="text-link" href="https://github.com/navraj223/projects/tree/main/pathFindingProject" aria-label="View Pathfinding Visualizer source code">Source code</a>
-          </article>
-          <article class="project project-biometrics">
-            <p class="label">Machine learning</p>
-            <h3>Biometric Classification</h3>
-            <p>A coursework project exploring how machine learning models classify biometric data and how to evaluate their results.</p>
-            <ul class="tag-list"><li>Python</li><li>Biometrics</li></ul>
-            <a class="text-link" href="https://github.com/navraj223/projects/tree/main/biometricClassification" aria-label="View Biometric Classification source code">Source code</a>
-          </article>
-        </div>
-      </section>
-
-      <section class="section" id="resume" aria-labelledby="resume-title">
-        <div class="section-heading">
-          <h2 id="resume-title">Resume</h2>
-          <a class="text-link" href="assets/navraj_resume_removed.pdf" download>Download PDF</a>
-        </div>
-        <details class="resume-panel">
-          <summary>Preview resume</summary>
-          <div class="resume-body">
-            <p><a class="text-link" href="assets/navraj_resume_removed.pdf">Open PDF</a></p>
-            <iframe title="Navraj Dhaliwal Resume" src="assets/navraj_resume_removed.pdf#view=FitH" loading="lazy"></iframe>
+          <span class="row-date">Exp. Dec 2026</span>
+        </li>
+        <li class="row">
+          <span class="tile tile-mag" aria-hidden="true">FS</span>
+          <div>
+            <span class="row-title">California State University, Fresno</span>
+            <span class="row-sub">B.S. in Computer Science, Advanced Cybersecurity Certificate</span>
           </div>
-        </details>
-      </section>
+          <span class="row-date">Dec 2025</span>
+        </li>
+      </ul>
+    </section>
 
-      <section class="section contact" id="contact" aria-labelledby="contact-title">
-        <h2 id="contact-title" class="ruled-heading">Contact</h2>
-        <div class="link-group">
-          <a class="text-link" href="mailto:navraj143403@gmail.com">Email</a>
-          <a href="https://github.com/navraj223">GitHub</a>
-          <a href="https://www.linkedin.com/in/navraj-dhaliwal-8a4aa6249/">LinkedIn</a>
-        </div>
-      </section>
-    </main>
-  </body>
+    <section aria-labelledby="skills-h">
+      <h2 class="sh" id="skills-h"><span class="sh-pre" aria-hidden="true">./</span>Skills</h2>
+      <ul class="tags">
+        <li class="tag">Python</li><li class="tag">JavaScript</li><li class="tag">HTML</li><li class="tag">CSS</li><li class="tag">C/C++</li><li class="tag">SQL</li>
+        <li class="tag">PostgreSQL</li><li class="tag">FastAPI</li><li class="tag">React</li><li class="tag">WordPress</li>
+        <li class="tag">Docker</li><li class="tag">Linux</li><li class="tag">GCP</li>
+      </ul>
+    </section>
+
+    <section id="projects" aria-labelledby="projects-h">
+      <h2 class="sh" id="projects-h"><span class="sh-pre" aria-hidden="true">./</span>Projects</h2>
+      <p class="prose intro">Work from my master's degree, coursework, and team builds. Code for most of it is on <a href="https://github.com/navraj223/projects">GitHub</a>.</p>
+
+      <div class="grid">
+
+        <article class="card">
+          <div class="card-in">
+            <div class="card-art">
+              <div class="art-bar">~/ms-project/privacy-gate</div>
+              <svg viewBox="0 0 400 170" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                <rect width="400" height="170" fill="url(#g-sky)"/>
+                <ellipse cx="200" cy="112" rx="230" ry="36" fill="url(#g-horizon)"/>
+                <use href="#floor"/>
+                <rect x="26" y="36" width="100" height="64" rx="3" fill="#0c1230" stroke="#2de2ff" stroke-opacity=".7"/>
+                <path d="M26 46H126" stroke="#2de2ff" stroke-opacity=".4"/>
+                <circle cx="33" cy="41" r="1.6" fill="#ff3ea5"/><circle cx="39" cy="41" r="1.6" fill="#ffc857"/><circle cx="45" cy="41" r="1.6" fill="#2de2ff"/>
+                <g fill="#2de2ff" fill-opacity=".55"><rect x="34" y="53" width="54" height="3"/><rect x="40" y="61" width="38" height="3"/><rect x="40" y="77" width="46" height="3"/><rect x="34" y="85" width="30" height="3"/></g>
+                <rect x="40" y="69" width="44" height="3" fill="#ff3ea5"/>
+                <path class="flow" d="M126 68H174" stroke="#2de2ff" stroke-dasharray="3 5" stroke-opacity=".75"/>
+                <g transform="translate(152 86)"><rect width="10" height="10" fill="#ff3ea5" fill-opacity=".2" stroke="#ff3ea5"/><path d="M2.5 2.5l5 5M7.5 2.5l-5 5" stroke="#ff3ea5"/></g>
+                <rect x="174" y="28" width="8" height="84" fill="#10173a" stroke="#2de2ff" stroke-opacity=".8"/>
+                <rect x="218" y="28" width="8" height="84" fill="#10173a" stroke="#2de2ff" stroke-opacity=".8"/>
+                <path d="M172 28H228" stroke="#2de2ff" stroke-width="2"/>
+                <g filter="url(#glow)">
+                  <path d="M200 42 216 48V62C216 73 209 80 200 84 191 80 184 73 184 62V48Z" fill="#2de2ff" fill-opacity=".12" stroke="#2de2ff" stroke-width="1.6"/>
+                  <circle cx="200" cy="59" r="3.6" fill="#2de2ff"/><rect x="198.5" y="61" width="3" height="9" fill="#2de2ff"/>
+                </g>
+                <path class="flow" d="M226 68H312" stroke="#2de2ff" stroke-dasharray="3 5" stroke-opacity=".5"/>
+                <g fill="#2de2ff"><rect x="238" y="65" width="7" height="7"/><rect x="258" y="65" width="7" height="7" fill-opacity=".7"/><rect x="278" y="65" width="7" height="7" fill-opacity=".45"/></g>
+                <path d="M314 78H364A14 14 0 0 0 362 50 20 20 0 0 0 324 46 14 14 0 0 0 314 78Z" fill="#1a1040" stroke="#ff3ea5" stroke-width="1.4" filter="url(#glow)"/>
+              </svg>
+            </div>
+            <div class="card-body">
+              <h3>Local Privacy Gate</h3>
+              <p class="status status-live">Master's project, in progress</p>
+              <ul class="tags tags-sm"><li class="tag">Python</li><li class="tag">MLX</li><li class="tag">LoRA</li><li class="tag">Docker</li></ul>
+              <p class="desc">Checks prompts and starter code for sensitive details before they go to Claude or Gemini. It can suggest a rewrite or keep the request local, and the developer approves what gets sent. Runs a fine-tuned Qwen2.5-Coder model and tests returned code in locked-down Docker containers.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-in">
+            <div class="card-art">
+              <div class="art-bar">~/projects/realtimeBreakoutRooms</div>
+              <svg viewBox="0 0 400 170" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                <rect width="400" height="170" fill="url(#g-sky)"/>
+                <ellipse cx="200" cy="112" rx="230" ry="36" fill="url(#g-horizon)"/>
+                <use href="#floor"/>
+                <g fill="none" stroke="#2de2ff" stroke-dasharray="4 4" stroke-opacity=".75" class="flow">
+                  <path d="M182 56H140V38H104"/><path d="M218 56H260V38H296"/>
+                  <path d="M182 68H140V100H104"/><path d="M218 68H260V100H296"/>
+                </g>
+                <g stroke="#2de2ff">
+                  <rect x="30" y="18" width="74" height="40" rx="2" fill="#0c1230" stroke-opacity=".75"/><path d="M30 27H104" stroke-opacity=".35"/>
+                  <rect x="296" y="18" width="74" height="40" rx="2" fill="#0c1230" stroke-opacity=".75"/><path d="M296 27H370" stroke-opacity=".35"/>
+                  <rect x="30" y="80" width="74" height="40" rx="2" fill="#0c1230" stroke-opacity=".75"/><path d="M30 89H104" stroke-opacity=".35"/>
+                  <rect x="296" y="80" width="74" height="40" rx="2" fill="#0c1230" stroke-opacity=".75"/><path d="M296 89H370" stroke-opacity=".35"/>
+                </g>
+                <g>
+                  <circle cx="44" cy="42" r="4.5" fill="#2de2ff"/><circle cx="58" cy="42" r="4.5" fill="#ffc857"/><circle cx="72" cy="42" r="4.5" fill="#ff3ea5"/>
+                  <circle cx="310" cy="42" r="4.5" fill="#ffc857"/><circle cx="324" cy="42" r="4.5" fill="#2de2ff"/>
+                  <circle cx="44" cy="104" r="4.5" fill="#ff3ea5"/><circle cx="58" cy="104" r="4.5" fill="#2de2ff"/><circle cx="72" cy="104" r="4.5" fill="#2de2ff"/><circle cx="86" cy="104" r="4.5" fill="#ffc857"/>
+                  <circle cx="310" cy="104" r="4.5" fill="#2de2ff"/><circle cx="324" cy="104" r="4.5" fill="#ff3ea5"/><circle cx="338" cy="104" r="4.5" fill="#ffc857"/>
+                </g>
+                <circle cx="200" cy="62" r="27" fill="none" stroke="#ff3ea5" stroke-opacity=".35" stroke-dasharray="3 4"/>
+                <g filter="url(#glow)"><circle cx="200" cy="62" r="18" fill="#140c34" stroke="#ff3ea5" stroke-width="1.5"/><circle cx="200" cy="62" r="6" fill="#ff3ea5"/></g>
+              </svg>
+            </div>
+            <div class="card-body">
+              <h3>Breakout Rooms</h3>
+              <p class="status">Team project, Dec 2025</p>
+              <ul class="tags tags-sm"><li class="tag">Python</li><li class="tag">FastAPI</li><li class="tag">Socket.IO</li><li class="tag">JavaScript</li></ul>
+              <p class="desc">A web app for running virtual breakout rooms. FastAPI handles room operations, Socket.IO keeps every client in sync, and access controls keep each room limited to the people assigned to it.</p>
+              <div class="card-links"><a class="btn btn-sm" href="https://github.com/navraj223/projects/tree/main/realtimeBreakoutRooms"><svg class="ico"><use href="#i-code"/></svg>Source</a></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-in">
+            <div class="card-art">
+              <div class="art-bar">~/projects/pathFindingProject</div>
+              <svg viewBox="0 0 400 170" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                <rect width="400" height="170" fill="url(#g-sky)"/>
+                <ellipse cx="200" cy="112" rx="230" ry="36" fill="url(#g-horizon)"/>
+                <use href="#floor"/>
+                <rect x="74" y="16" width="252" height="90" fill="#0b1030" fill-opacity=".8"/>
+                <g fill="#2de2ff" fill-opacity=".13">
+                  <rect x="92" y="34" width="18" height="18"/><rect x="110" y="34" width="18" height="18"/><rect x="92" y="70" width="18" height="18"/>
+                  <rect x="110" y="70" width="18" height="18"/><rect x="164" y="70" width="18" height="18"/><rect x="182" y="70" width="18" height="18"/>
+                  <rect x="200" y="52" width="18" height="18"/><rect x="200" y="34" width="18" height="18"/><rect x="272" y="34" width="18" height="18"/>
+                  <rect x="272" y="70" width="18" height="18"/><rect x="290" y="70" width="18" height="18"/>
+                </g>
+                <g fill="#28305a"><rect x="146" y="16" width="18" height="72"/><rect x="236" y="34" width="18" height="72"/></g>
+                <path d="M92 16V106M110 16V106M128 16V106M146 16V106M164 16V106M182 16V106M200 16V106M218 16V106M236 16V106M254 16V106M272 16V106M290 16V106M308 16V106M74 34H326M74 52H326M74 70H326M74 88H326" stroke="#2de2ff" stroke-opacity=".16"/>
+                <rect x="74" y="16" width="252" height="90" fill="none" stroke="#2de2ff" stroke-opacity=".55"/>
+                <rect x="74" y="52" width="18" height="18" fill="#2de2ff"/>
+                <rect x="308" y="52" width="18" height="18" fill="#ff3ea5"/>
+                <polyline class="trace" points="83,61 137,61 137,97 227,97 227,25 263,25 263,61 317,61" fill="none" stroke="#ffc857" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" filter="url(#glow)"/>
+              </svg>
+            </div>
+            <div class="card-body">
+              <h3>Pathfinding Visualizer</h3>
+              <p class="status">Mar 2025</p>
+              <ul class="tags tags-sm"><li class="tag">C++</li><li class="tag">React</li><li class="tag">Docker</li></ul>
+              <p class="desc">Compares shortest-path algorithms, including Dijkstra's, step by step on a grid. A C++ core does the searching, a React interface shows each step, and the whole app runs in Docker.</p>
+              <div class="card-links"><a class="btn btn-sm" href="https://github.com/navraj223/projects/tree/main/pathFindingProject"><svg class="ico"><use href="#i-code"/></svg>Source</a></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-in">
+            <div class="card-art">
+              <div class="art-bar">~/projects/biometricClassification</div>
+              <svg viewBox="0 0 400 170" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                <rect width="400" height="170" fill="url(#g-sky)"/>
+                <ellipse cx="200" cy="112" rx="230" ry="36" fill="url(#g-horizon)"/>
+                <use href="#floor"/>
+                <path d="M46 104 114 36" stroke="#ffc857" stroke-dasharray="4 4" stroke-opacity=".8"/>
+                <g fill="#2de2ff"><circle cx="54" cy="48" r="2.6"/><circle cx="66" cy="40" r="2.6"/><circle cx="72" cy="56" r="2.6"/><circle cx="60" cy="62" r="2.6"/><circle cx="80" cy="46" r="2.6"/><circle cx="48" cy="60" r="2.6"/></g>
+                <g fill="#ff3ea5"><circle cx="88" cy="84" r="2.6"/><circle cx="100" cy="76" r="2.6"/><circle cx="108" cy="92" r="2.6"/><circle cx="94" cy="96" r="2.6"/><circle cx="116" cy="82" r="2.6"/><circle cx="82" cy="92" r="2.6"/></g>
+                <g fill="none" stroke="#2de2ff" stroke-width="1.6" stroke-opacity=".85" stroke-linecap="round" filter="url(#glow)">
+                  <ellipse cx="200" cy="64" rx="5" ry="7" stroke-dasharray="26 6"/>
+                  <ellipse cx="200" cy="64" rx="10" ry="14" stroke-dasharray="40 8 14 6"/>
+                  <ellipse cx="200" cy="64" rx="15" ry="21" stroke-dasharray="52 10"/>
+                  <ellipse cx="200" cy="64" rx="20" ry="28" stroke-dasharray="64 8 22 10"/>
+                  <ellipse cx="200" cy="64" rx="25" ry="35" stroke-dasharray="76 12"/>
+                  <ellipse cx="200" cy="64" rx="30" ry="42" stroke-dasharray="90 14 30 10"/>
+                </g>
+                <g class="scan">
+                  <rect x="152" y="40" width="96" height="18" fill="url(#g-scan)"/>
+                  <rect x="152" y="57" width="96" height="1.6" fill="#2de2ff" filter="url(#glow)"/>
+                </g>
+                <g fill="#1a2146"><rect x="280" y="44" width="88" height="8"/><rect x="280" y="60" width="88" height="8"/><rect x="280" y="76" width="88" height="8"/></g>
+                <rect x="280" y="44" width="76" height="8" fill="#2de2ff"/>
+                <rect x="280" y="60" width="44" height="8" fill="#ff3ea5"/>
+                <rect x="280" y="76" width="20" height="8" fill="#ffc857"/>
+              </svg>
+            </div>
+            <div class="card-body">
+              <h3>Biometric Classification</h3>
+              <p class="status">Coursework</p>
+              <ul class="tags tags-sm"><li class="tag">Python</li><li class="tag">Machine learning</li></ul>
+              <p class="desc">Explores how machine learning models classify biometric data, and how to evaluate whether their results actually hold up.</p>
+              <div class="card-links"><a class="btn btn-sm" href="https://github.com/navraj223/projects/tree/main/biometricClassification"><svg class="ico"><use href="#i-code"/></svg>Source</a></div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="contact" aria-labelledby="contact-h">
+      <h2 class="big" id="contact-h">Get in touch</h2>
+      <p>Email me at <a href="mailto:navraj143403@gmail.com">navraj143403@gmail.com</a> or find me on <a href="https://www.linkedin.com/in/navraj-dhaliwal-8a4aa6249/">LinkedIn</a>.</p>
+    </section>
+
+    <footer class="foot">© <span id="year">2026</span> Navraj Dhaliwal, Fresno, CA</footer>
+  </main>
+
+  <nav class="dock" aria-label="Quick links">
+    <a href="#top" data-tip="Home" aria-label="Back to top"><svg class="ico"><use href="#i-home"/></svg></a>
+    <span class="sep" aria-hidden="true"></span>
+    <a href="https://github.com/navraj223" data-tip="GitHub" aria-label="GitHub"><svg class="ico"><use href="#i-github"/></svg></a>
+    <a href="https://www.linkedin.com/in/navraj-dhaliwal-8a4aa6249/" data-tip="LinkedIn" aria-label="LinkedIn"><svg class="ico"><use href="#i-linkedin"/></svg></a>
+    <a href="mailto:navraj143403@gmail.com" data-tip="Email" aria-label="Email"><svg class="ico"><use href="#i-mail"/></svg></a>
+    <span class="sep" aria-hidden="true"></span>
+    <a class="d-mag" href="assets/navraj_resume_removed.pdf" data-tip="Resume" aria-label="Resume (PDF)"><svg class="ico"><use href="#i-resume"/></svg></a>
+    <a class="d-mag" href="scores.html" data-tip="NBA scores" aria-label="NBA scores"><svg class="ico"><use href="#i-ball"/></svg></a>
+    <span class="sep" aria-hidden="true"></span>
+    <button class="d-amber" id="theme-toggle" type="button" data-tip="Light mode" aria-label="Switch to light theme"><svg class="ico"><use href="#i-sun"/></svg></button>
+  </nav>
+
+  <script src="portfolio.js"></script>
+</body>
 </html>
